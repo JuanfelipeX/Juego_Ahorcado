@@ -65,6 +65,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButtonPlay.setContentAreaFilled(false);
         jButtonPlay.setFocusPainted(false);
         jButtonPlay.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PlayFade.png"))); // NOI18N
+        jButtonPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPlayActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 140, 50));
 
         jButtonExit.setBackground(new java.awt.Color(255, 255, 255));
@@ -94,7 +99,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButtonHowPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 160, 50));
 
         imagenMunieco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maniquiahordcado-original (1).png"))); // NOI18N
-        getContentPane().add(imagenMunieco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 170, 230));
+        getContentPane().add(imagenMunieco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 170, 230));
 
         FondoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoPrincipal.jpg"))); // NOI18N
         getContentPane().add(FondoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -104,7 +109,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButtonHowPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHowPlayActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "", "How to Play",ICONIFIED);  //HEIGTH TRIANGULO PRECAUCION
+        JOptionPane.showMessageDialog(rootPane, "1. Using a row of hyphens, the word to be guessed is represented, giving the number of letters"
+                + "\n" + "2. if the word is guessed, the word will be displayed in its correct positions"
+                + "\n" + "3. If the letter is not guessed, one begins to place elements parts of the body, until completing the body and here the game would end", "How to Play",ICONIFIED);  //HEIGTH TRIANGULO PRECAUCION
     }//GEN-LAST:event_jButtonHowPlayActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
@@ -123,6 +130,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
           JOptionPane.showMessageDialog(rootPane, "Game made By: Juan Felipe Jimenez Pacheco", "Credits",ICONIFIED); 
     }//GEN-LAST:event_jButtonCreditsActionPerformed
+
+    private void jButtonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlayActionPerformed
+        // TODO add your handling code here:
+        Juego juego = new Juego();
+        juego.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButtonPlayActionPerformed
 
     /**
      * @param args the command line arguments
