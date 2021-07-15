@@ -97,10 +97,11 @@ public class Juego extends javax.swing.JFrame {
     
     //funcion para comenzar los parametros del juego o iniciar una nueva partida
     public void iniciar() {
+        
         //ERRORES EN 0
         err = 0;
         //  .setIcon(imgs[0]);             //FALTA IMAGENES
-        TextoAdivinar.setText("");
+        textoAdivinar.setText("");
         
         //para activar las letras del tablero
         for (int i = 1; i < 27; i++) {
@@ -113,15 +114,15 @@ public class Juego extends javax.swing.JFrame {
         //SEPARA EL MENSAJE POR PALABRAS
         String pal[] = msgs[ran].split(" ");
         res = new String[msgs[ran].length() + 1];
-        int j = 0;
         
         // seran los guiones que van debajo de las letras como una separacion_
+        int j = 0;
         for (String pal1 : pal) {
             for (int i = 0; i < pal1.length(); i++) {
-                TextoAdivinar.setText(TextoAdivinar.getText() + "_ ");
+                textoAdivinar.setText(textoAdivinar.getText() + "_ ");
                 res[j++] = "_";
             }
-            TextoAdivinar.setText(TextoAdivinar.getText() + "\n");
+            textoAdivinar.setText(textoAdivinar.getText() + "\n");
             res[j++] = " ";
         }
     }
@@ -132,10 +133,12 @@ public class Juego extends javax.swing.JFrame {
         JButton bt = (JButton) e.getSource();
         char c[];
         //busca la letra en la palabra despues de haber sido presionada
-        for (int i = 1; i < 27; i++) {
+        for (int i = 0; i < 27; i++) {
             if (bt == buttons[i]) {
+                
                 //la tecla es inicializada
                 c = Character.toChars(64 + i);
+                
                 //busca si la letra esta en la frase
                 boolean esta = false;
                 for (int j = 0; j < msgs[ran].length(); j++) {
@@ -144,17 +147,19 @@ public class Juego extends javax.swing.JFrame {
                         esta = true;
                     }
                 }
-                //SI LA LETRA ESTA EN EL MENSAJE SE MUESTRA EN EL TEXTPANEL
+                
+                //SI LA LETRA ESTA EN EL MENSAJE SE MUESTRA EN EL Jlbael
                 if (esta) {
-                    TextoAdivinar.setText("");
+                    textoAdivinar.setText("");
                     for (String re : res) {
                         if (" ".equals(re)) {
-                            TextoAdivinar.setText(TextoAdivinar.getText() + "\n");
+                            textoAdivinar.setText(textoAdivinar.getText() + "\n");
                         } else {
-                            TextoAdivinar.setText(TextoAdivinar.getText() + re + " ");
+                            textoAdivinar.setText(textoAdivinar.getText() + re + " ");
                         }
                     }
-                    //hace una comprobacion de las letras restantes y faltantes, en caso de que ya no haya letras sera ganador :D
+                    
+                    //hace una comprobacion de las letras restantes y faltantes, en caso de que ya no haya letras sera ganador :S
                     boolean gano = true;
                     for (String re : res) {
                         if (re.equals("_")) {
@@ -162,23 +167,25 @@ public class Juego extends javax.swing.JFrame {
                             break;
                         }
                     }
+                    
                     //al ser correcta se muestra un mensaje y se reinicia el juego
                     if (gano) {
-                        JOptionPane.showMessageDialog(this, "Ganaste :3 Reclama tu premio con Alexis, Pablo o Ghadiel xD!!!");
+                        JOptionPane.showMessageDialog(this, "Ganaste :D");
                         iniciar();
                         return;
                     }
                     //SI LA LETRA NO ESTA EN EL MENSAGE, SE INCREMENTA EL ERROR Y SE CAMBIA LA IMAGEN
                 } else {
-                    jButtonA.setIcon(imgs[++err]);
                     //SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE EL JUEGO Y SE MANDA EL MENSAGE DE:
+                    
+                    err++;
                     if (err == 5) {
                         JOptionPane.showMessageDialog(this, "Intenta con otra palabra la respuesta es: \n" + msgs[ran]);
                         iniciar();
                         return;
                     }
                 }
-                //esta es la linea que desactiva las letras despues de ser usadas :3
+                //esta es la linea que desactiva las letras despues de ser usadas S
                 bt.setEnabled(false);
                 break;
             }
@@ -223,7 +230,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonU = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButtonNewWord = new javax.swing.JButton();
-        TextoAdivinar = new javax.swing.JLabel();
+        textoAdivinar = new javax.swing.JLabel();
         FondoPizarra = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -392,7 +399,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonT.setBorderPainted(false);
         jButtonT.setContentAreaFilled(false);
         jButtonT.setFocusPainted(false);
-        jButtonT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/oFade.png"))); // NOI18N
+        jButtonT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tFade.png"))); // NOI18N
         jButtonT.setVerifyInputWhenFocusTarget(false);
         getContentPane().add(jButtonT, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, -1, -1));
 
@@ -463,10 +470,10 @@ public class Juego extends javax.swing.JFrame {
         jButtonNewWord.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/newWordFade.png"))); // NOI18N
         getContentPane().add(jButtonNewWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 290, 50));
 
-        TextoAdivinar.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
-        TextoAdivinar.setForeground(new java.awt.Color(255, 255, 255));
-        TextoAdivinar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(TextoAdivinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 490, 80));
+        textoAdivinar.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        textoAdivinar.setForeground(new java.awt.Color(255, 255, 255));
+        textoAdivinar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(textoAdivinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 490, 80));
 
         FondoPizarra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pizarra.png"))); // NOI18N
         getContentPane().add(FondoPizarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -527,7 +534,6 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FondoPizarra;
-    private javax.swing.JLabel TextoAdivinar;
     private javax.swing.JButton jButtonA;
     private javax.swing.JButton jButtonB;
     private javax.swing.JButton jButtonC;
@@ -559,5 +565,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel textoAdivinar;
     // End of variables declaration//GEN-END:variables
 }
