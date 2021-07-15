@@ -100,7 +100,7 @@ public class Juego extends javax.swing.JFrame {
         //ERRORES EN 0
         err = 0;
         //  .setIcon(imgs[0]);             //FALTA IMAGENES
-        jTextPane1.setText("");
+        TextoAdivinar.setText("");
         
         //para activar las letras del tablero
         for (int i = 1; i < 27; i++) {
@@ -118,10 +118,10 @@ public class Juego extends javax.swing.JFrame {
         // seran los guiones que van debajo de las letras como una separacion_
         for (String pal1 : pal) {
             for (int i = 0; i < pal1.length(); i++) {
-                jTextPane1.setText(jTextPane1.getText() + "_ ");
+                TextoAdivinar.setText(TextoAdivinar.getText() + "_ ");
                 res[j++] = "_";
             }
-            jTextPane1.setText(jTextPane1.getText() + "\n");
+            TextoAdivinar.setText(TextoAdivinar.getText() + "\n");
             res[j++] = " ";
         }
     }
@@ -146,12 +146,12 @@ public class Juego extends javax.swing.JFrame {
                 }
                 //SI LA LETRA ESTA EN EL MENSAJE SE MUESTRA EN EL TEXTPANEL
                 if (esta) {
-                    jTextPane1.setText("");
+                    TextoAdivinar.setText("");
                     for (String re : res) {
                         if (" ".equals(re)) {
-                            jTextPane1.setText(jTextPane1.getText() + "\n");
+                            TextoAdivinar.setText(TextoAdivinar.getText() + "\n");
                         } else {
-                            jTextPane1.setText(jTextPane1.getText() + re + " ");
+                            TextoAdivinar.setText(TextoAdivinar.getText() + re + " ");
                         }
                     }
                     //hace una comprobacion de las letras restantes y faltantes, en caso de que ya no haya letras sera ganador :D
@@ -223,8 +223,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonU = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButtonNewWord = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        TextoAdivinar = new javax.swing.JLabel();
         FondoPizarra = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -461,17 +460,13 @@ public class Juego extends javax.swing.JFrame {
         jButtonNewWord.setBorderPainted(false);
         jButtonNewWord.setContentAreaFilled(false);
         jButtonNewWord.setFocusPainted(false);
-        jButtonNewWord.setOpaque(false);
         jButtonNewWord.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/newWordFade.png"))); // NOI18N
         getContentPane().add(jButtonNewWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 290, 50));
 
-        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextPane1.setFocusCycleRoot(false);
-        jTextPane1.setOpaque(false);
-        jTextPane1.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(jTextPane1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 500, 90));
+        TextoAdivinar.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        TextoAdivinar.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAdivinar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(TextoAdivinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 490, 80));
 
         FondoPizarra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pizarra.png"))); // NOI18N
         getContentPane().add(FondoPizarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -532,6 +527,7 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FondoPizarra;
+    private javax.swing.JLabel TextoAdivinar;
     private javax.swing.JButton jButtonA;
     private javax.swing.JButton jButtonB;
     private javax.swing.JButton jButtonC;
@@ -563,7 +559,5 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
