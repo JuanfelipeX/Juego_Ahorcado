@@ -99,7 +99,7 @@ public class Juego extends javax.swing.JFrame {
     public void iniciar() {
         //ERRORES EN 0
         err = 0;
-        jButtonA.setIcon(imgs[0]);             //FALTA IMAGENES
+        //  .setIcon(imgs[0]);             //FALTA IMAGENES
         jTextPane1.setText("");
         
         //para activar las letras del tablero
