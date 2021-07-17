@@ -23,12 +23,12 @@ public class Juego extends javax.swing.JFrame {
         msgs = new String[20];
         buttons = new JButton[27];
         
-        /*
-        //imagenes del joven ahorcado lol
-        imgs[0] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im1.jpg"));
-        imgs[1] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im2.jpg"));
-        imgs[2] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im3.jpg"));
-        imgs[3] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im4.jpg"));
+        
+        //imagenes del ahorcado
+        imgs[0] = new ImageIcon(getClass().getResource("/Imagenes/cabezaAhorcado.png"));
+      //  imgs[1] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im2.jpg"));
+        //imgs[2] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im3.jpg"));
+        /*imgs[3] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im4.jpg"));
         imgs[4] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im5.jpg"));
         imgs[5] = new ImageIcon(getClass().getResource("/MexicanHangedPerson/im6.jpg"))
         */
@@ -100,7 +100,7 @@ public class Juego extends javax.swing.JFrame {
         
         //ERRORES EN 0
         err = 0;
-        //  .setIcon(imgs[0]);             //FALTA IMAGENES
+        jButton1.setIcon(imgs[0]);             //FALTA IMAGENES
         textoAdivinar.setText("");
         
         //para activar las letras del tablero
@@ -131,9 +131,9 @@ public class Juego extends javax.swing.JFrame {
     //al presionar una letra, esta se buscara si pertenece a la palabra, de lo contrario la marcara como error
     public void checarLetra(ActionEvent e) {
         JButton bt = (JButton) e.getSource();
-        char c[];
+        char c[];   
         //busca la letra en la palabra despues de haber sido presionada
-        for (int i = 0; i < 27; i++) {
+        for (int i = 1; i < 27; i++) {
             if (bt == buttons[i]) {
                 
                 //la tecla es inicializada
@@ -157,7 +157,7 @@ public class Juego extends javax.swing.JFrame {
                         } else {
                             textoAdivinar.setText(textoAdivinar.getText() + re + " ");
                         }
-                    }
+                    }   
                     
                     //hace una comprobacion de las letras restantes y faltantes, en caso de que ya no haya letras sera ganador :S
                     boolean gano = true;
@@ -170,7 +170,7 @@ public class Juego extends javax.swing.JFrame {
                     
                     //al ser correcta se muestra un mensaje y se reinicia el juego
                     if (gano) {
-                        JOptionPane.showMessageDialog(this, "Ganaste :D");
+                        JOptionPane.showMessageDialog(this, "Felicidades ganastes :D" , "Ganastes", WIDTH);
                         iniciar();
                         return;
                     }
@@ -180,7 +180,7 @@ public class Juego extends javax.swing.JFrame {
                     
                     err++;
                     if (err == 5) {
-                        JOptionPane.showMessageDialog(this, "Intenta con otra palabra la respuesta es: \n" + msgs[ran]);
+                        JOptionPane.showMessageDialog(this, "Intenta con otra palabra la respuesta es: \n" + msgs[ran] , "Perdiste", HEIGHT);
                         iniciar();
                         return;
                     }
@@ -229,6 +229,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonZ = new javax.swing.JButton();
         jButtonU = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jButtonNewWord = new javax.swing.JButton();
         textoAdivinar = new javax.swing.JLabel();
         FondoPizarra = new javax.swing.JLabel();
@@ -461,6 +462,13 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.setOpaque(false);
+
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
+        jButton1.setOpaque(false);
+        jPanel1.add(jButton1);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 320, 380));
 
         jButtonNewWord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/newWord.png"))); // NOI18N
@@ -468,6 +476,11 @@ public class Juego extends javax.swing.JFrame {
         jButtonNewWord.setContentAreaFilled(false);
         jButtonNewWord.setFocusPainted(false);
         jButtonNewWord.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/newWordFade.png"))); // NOI18N
+        jButtonNewWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewWordActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonNewWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 290, 50));
 
         textoAdivinar.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
@@ -496,6 +509,11 @@ public class Juego extends javax.swing.JFrame {
     private void jButtonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAActionPerformed
+
+    private void jButtonNewWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewWordActionPerformed
+        // TODO add your handling code here:
+        iniciar();
+    }//GEN-LAST:event_jButtonNewWordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -534,6 +552,7 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FondoPizarra;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonA;
     private javax.swing.JButton jButtonB;
     private javax.swing.JButton jButtonC;
