@@ -1,5 +1,6 @@
 package Vista;
 
+import com.sun.tools.javac.Main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -20,7 +21,7 @@ public class Juego extends javax.swing.JFrame {
         setLocationRelativeTo(null);// centra el programa
         
         imgs = new ImageIcon[6];
-        msgs = new String[20];
+        msgs = new String[38];
         buttons = new JButton[27];
         
         
@@ -60,27 +61,44 @@ public class Juego extends javax.swing.JFrame {
         buttons[25] = jButtonY;
         buttons[26] = jButtonZ;
         
-         //palabras por advinar, para agregar una nueva palabra sera necesario declararla al inicio
-        msgs[0] = "Mexico".toUpperCase();
-        msgs[1] = "Pumas".toUpperCase();
-        msgs[2] = "Universidad".toUpperCase();
-        msgs[3] = "Academia".toUpperCase();
-        msgs[4] = "Atlas".toUpperCase();
-        msgs[5] = "Tigres".toUpperCase();
-        msgs[6] = "Veracruz".toUpperCase();
-        msgs[7] = "Michoacan".toUpperCase();
-        msgs[8] = "Oaxaca".toUpperCase();
-        msgs[9] = "Yucatan".toUpperCase();
-        msgs[10] = "Monterrey".toUpperCase();
-        msgs[11] = "Guerrero".toUpperCase();
-        msgs[12] = "Colima".toUpperCase();
-        msgs[13] = "Guadalajara".toUpperCase();
-        msgs[14] = "Guanajuato".toUpperCase();
-        msgs[15] = "Tlaxcala".toUpperCase();
-        msgs[16] = "Argentina".toUpperCase();
-        msgs[17] = "Alemania".toUpperCase();
-        msgs[18] = "Brasil".toUpperCase();
-        msgs[19] = "Uruguay".toUpperCase();
+        msgs[0] = "Afganistan".toUpperCase();
+        msgs[1] = "Alemania".toUpperCase();
+        msgs[2] = "Australia".toUpperCase();
+        msgs[3] = "Austria".toUpperCase();
+        msgs[4] = "Belgica".toUpperCase();
+        msgs[5] = "Bolivia".toUpperCase();
+        msgs[6] = "Brasil".toUpperCase();
+        msgs[7] = "Canada".toUpperCase();
+        msgs[8] = "Chile".toUpperCase();
+        msgs[9] = "China".toUpperCase();
+        msgs[10] = "Colombia".toUpperCase();
+        msgs[11] = "Cuba".toUpperCase();
+        msgs[12] = "Ecuador".toUpperCase();
+        msgs[13] = "Egipto".toUpperCase();
+        msgs[14] = "US".toUpperCase();
+        msgs[15] = "Francia".toUpperCase();
+        msgs[16] = "Grecia".toUpperCase();
+        msgs[17] = "Guatemala".toUpperCase();
+        msgs[18] = "India".toUpperCase();
+        msgs[19] = "Irak".toUpperCase();
+        msgs[20] = "Italia".toUpperCase();
+        msgs[21] = "Letonia".toUpperCase();
+        msgs[22] = "Luxemburgo".toUpperCase();
+        msgs[23] = "Malta".toUpperCase();
+        msgs[24] = "Mexico".toUpperCase();
+        msgs[25] = "Noruega".toUpperCase();
+        msgs[26] = "Panama".toUpperCase();
+        msgs[27] = "Peru".toUpperCase();
+        msgs[28] = "Polonia".toUpperCase();
+        msgs[29] = "Portugal".toUpperCase();
+        msgs[30] = "UK".toUpperCase();
+        msgs[31] = "Serbia".toUpperCase();
+        msgs[32] = "Suiza".toUpperCase();
+        msgs[33] = "Turquia".toUpperCase();
+        msgs[34] = "Venezuela".toUpperCase();
+        msgs[35] = "Vietnam".toUpperCase();
+        msgs[36] = "Yemen".toUpperCase();
+        msgs[37] = "Zambia".toUpperCase();
         
         //se asigna un evento a cada letra para comprobar que exista en la palabra a adivinar
         for (int i = 1; i < 27; i++) {
@@ -234,8 +252,10 @@ public class Juego extends javax.swing.JFrame {
         textoAdivinar = new javax.swing.JLabel();
         FondoPizarra = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuOptions = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuMenuPrincipal = new javax.swing.JMenuItem();
+        jMenuExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ahorcado");
@@ -248,7 +268,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonD.setFocusPainted(false);
         jButtonD.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dFade.png"))); // NOI18N
         jButtonD.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, -1));
+        getContentPane().add(jButtonD, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
         jButtonA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/a.png"))); // NOI18N
         jButtonA.setBorderPainted(false);
@@ -261,7 +281,7 @@ public class Juego extends javax.swing.JFrame {
                 jButtonAActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+        getContentPane().add(jButtonA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         jButtonB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/b.png"))); // NOI18N
         jButtonB.setBorderPainted(false);
@@ -269,7 +289,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonB.setFocusPainted(false);
         jButtonB.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bFade.png"))); // NOI18N
         jButtonB.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonB, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
+        getContentPane().add(jButtonB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
         jButtonE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/e.png"))); // NOI18N
         jButtonE.setBorderPainted(false);
@@ -277,7 +297,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonE.setFocusPainted(false);
         jButtonE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eFade.png"))); // NOI18N
         jButtonE.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonE, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
+        getContentPane().add(jButtonE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         jButtonF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/f.png"))); // NOI18N
         jButtonF.setBorderPainted(false);
@@ -285,7 +305,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonF.setFocusPainted(false);
         jButtonF.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fFade.png"))); // NOI18N
         jButtonF.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
+        getContentPane().add(jButtonF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
 
         jButtonG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/g.png"))); // NOI18N
         jButtonG.setBorderPainted(false);
@@ -293,7 +313,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonG.setFocusPainted(false);
         jButtonG.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/gFade.png"))); // NOI18N
         jButtonG.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonG, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
+        getContentPane().add(jButtonG, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
         jButtonH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/h.png"))); // NOI18N
         jButtonH.setBorderPainted(false);
@@ -301,7 +321,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonH.setFocusPainted(false);
         jButtonH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/hFade.png"))); // NOI18N
         jButtonH.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonH, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, -1, -1));
+        getContentPane().add(jButtonH, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
 
         jButtonI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/i.png"))); // NOI18N
         jButtonI.setBorderPainted(false);
@@ -314,7 +334,7 @@ public class Juego extends javax.swing.JFrame {
                 jButtonIActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonI, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, -1, -1));
+        getContentPane().add(jButtonI, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, -1));
 
         jButtonJ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/j.png"))); // NOI18N
         jButtonJ.setBorderPainted(false);
@@ -322,7 +342,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonJ.setFocusPainted(false);
         jButtonJ.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jFade.png"))); // NOI18N
         jButtonJ.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, -1));
+        getContentPane().add(jButtonJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, -1));
 
         jButtonK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/k.png"))); // NOI18N
         jButtonK.setBorderPainted(false);
@@ -330,7 +350,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonK.setFocusPainted(false);
         jButtonK.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/kFade.png"))); // NOI18N
         jButtonK.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonK, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, -1, -1));
+        getContentPane().add(jButtonK, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, -1, -1));
 
         jButtonC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/c.png"))); // NOI18N
         jButtonC.setBorderPainted(false);
@@ -338,7 +358,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonC.setFocusPainted(false);
         jButtonC.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cFade.png"))); // NOI18N
         jButtonC.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        getContentPane().add(jButtonC, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, -1));
 
         jButtonM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/m.png"))); // NOI18N
         jButtonM.setBorderPainted(false);
@@ -346,7 +366,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonM.setFocusPainted(false);
         jButtonM.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mFade.png"))); // NOI18N
         jButtonM.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonM, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, -1, -1));
+        getContentPane().add(jButtonM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
 
         jButtonN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/n.png"))); // NOI18N
         jButtonN.setBorderPainted(false);
@@ -354,7 +374,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonN.setFocusPainted(false);
         jButtonN.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nFade.png"))); // NOI18N
         jButtonN.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonN, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, -1, -1));
+        getContentPane().add(jButtonN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, -1, -1));
 
         jButtonO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/o.png"))); // NOI18N
         jButtonO.setBorderPainted(false);
@@ -362,7 +382,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonO.setFocusPainted(false);
         jButtonO.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/oFade.png"))); // NOI18N
         jButtonO.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonO, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+        getContentPane().add(jButtonO, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
 
         jButtonL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/l.png"))); // NOI18N
         jButtonL.setBorderPainted(false);
@@ -370,7 +390,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonL.setFocusPainted(false);
         jButtonL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lFade.png"))); // NOI18N
         jButtonL.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonL, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
+        getContentPane().add(jButtonL, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
 
         jButtonQ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/q.png"))); // NOI18N
         jButtonQ.setBorderPainted(false);
@@ -378,7 +398,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonQ.setFocusPainted(false);
         jButtonQ.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/qFade.png"))); // NOI18N
         jButtonQ.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
+        getContentPane().add(jButtonQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
 
         jButtonR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/r.png"))); // NOI18N
         jButtonR.setBorderPainted(false);
@@ -386,7 +406,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonR.setFocusPainted(false);
         jButtonR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rFade.png"))); // NOI18N
         jButtonR.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonR, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
+        getContentPane().add(jButtonR, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, -1));
 
         jButtonS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/s.png"))); // NOI18N
         jButtonS.setBorderPainted(false);
@@ -394,7 +414,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonS.setFocusPainted(false);
         jButtonS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sFade.png"))); // NOI18N
         jButtonS.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, -1, -1));
+        getContentPane().add(jButtonS, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
 
         jButtonT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/t.png"))); // NOI18N
         jButtonT.setBorderPainted(false);
@@ -402,7 +422,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonT.setFocusPainted(false);
         jButtonT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tFade.png"))); // NOI18N
         jButtonT.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonT, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+        getContentPane().add(jButtonT, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
 
         jButtonV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/v.png"))); // NOI18N
         jButtonV.setBorderPainted(false);
@@ -410,7 +430,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonV.setFocusPainted(false);
         jButtonV.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/vFade.png"))); // NOI18N
         jButtonV.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonV, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+        getContentPane().add(jButtonV, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
 
         jButtonP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/p.png"))); // NOI18N
         jButtonP.setBorderPainted(false);
@@ -418,7 +438,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonP.setFocusPainted(false);
         jButtonP.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pFade.png"))); // NOI18N
         jButtonP.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonP, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, -1, -1));
+        getContentPane().add(jButtonP, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
 
         jButtonW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/w.png"))); // NOI18N
         jButtonW.setBorderPainted(false);
@@ -426,7 +446,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonW.setFocusPainted(false);
         jButtonW.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/wFade.png"))); // NOI18N
         jButtonW.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonW, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, -1, -1));
+        getContentPane().add(jButtonW, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, -1, -1));
 
         jButtonX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/x.png"))); // NOI18N
         jButtonX.setBorderPainted(false);
@@ -434,7 +454,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonX.setFocusPainted(false);
         jButtonX.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/xFade.png"))); // NOI18N
         jButtonX.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonX, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, -1, -1));
+        getContentPane().add(jButtonX, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
 
         jButtonY.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/y.png"))); // NOI18N
         jButtonY.setBorderPainted(false);
@@ -442,7 +462,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonY.setFocusPainted(false);
         jButtonY.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/yFade.png"))); // NOI18N
         jButtonY.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonY, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, -1, -1));
+        getContentPane().add(jButtonY, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
 
         jButtonZ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/z.png"))); // NOI18N
         jButtonZ.setBorderPainted(false);
@@ -450,7 +470,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonZ.setFocusPainted(false);
         jButtonZ.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/zFade.png"))); // NOI18N
         jButtonZ.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 450, -1, -1));
+        getContentPane().add(jButtonZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
 
         jButtonU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/u.png"))); // NOI18N
         jButtonU.setBorderPainted(false);
@@ -458,7 +478,7 @@ public class Juego extends javax.swing.JFrame {
         jButtonU.setFocusPainted(false);
         jButtonU.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/uFade.png"))); // NOI18N
         jButtonU.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(jButtonU, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, -1, -1));
+        getContentPane().add(jButtonU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.setOpaque(false);
@@ -468,7 +488,6 @@ public class Juego extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
         jButton1.setFocusable(false);
-        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -476,7 +495,7 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 320, 280));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 320, 260));
 
         jButtonNewWord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/newWord.png"))); // NOI18N
         jButtonNewWord.setBorderPainted(false);
@@ -488,21 +507,46 @@ public class Juego extends javax.swing.JFrame {
                 jButtonNewWordActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonNewWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 290, 50));
+        getContentPane().add(jButtonNewWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 290, 50));
 
-        textoAdivinar.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        textoAdivinar.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         textoAdivinar.setForeground(new java.awt.Color(255, 255, 255));
         textoAdivinar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(textoAdivinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 490, 80));
+        getContentPane().add(textoAdivinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 340, 80));
 
         FondoPizarra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pizarra.png"))); // NOI18N
         getContentPane().add(FondoPizarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenuOptions.setText("Opciones");
+
+        jMenuItem1.setText("Generar nueva palabra");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenuOptions.add(jMenuItem1);
+
+        jMenuMenuPrincipal.setText("Menu Principal");
+        jMenuMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuMenuPrincipalActionPerformed(evt);
+            }
+        });
+        jMenuOptions.add(jMenuMenuPrincipal);
+
+        jMenuExit.setText("Salir");
+        jMenuExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuExitActionPerformed(evt);
+            }
+        });
+        jMenuOptions.add(jMenuExit);
+
+        jMenuBar1.add(jMenuOptions);
 
         setJMenuBar(jMenuBar1);
 
@@ -525,6 +569,23 @@ public class Juego extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        iniciar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuMenuPrincipalActionPerformed
+
+    private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -591,9 +652,11 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton jButtonX;
     private javax.swing.JButton jButtonY;
     private javax.swing.JButton jButtonZ;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuExit;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuMenuPrincipal;
+    private javax.swing.JMenu jMenuOptions;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel textoAdivinar;
     // End of variables declaration//GEN-END:variables

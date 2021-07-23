@@ -44,7 +44,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtMenuPrinci.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/txtMenuPri.png"))); // NOI18N
-        getContentPane().add(txtMenuPrinci, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        getContentPane().add(txtMenuPrinci, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         jButtonCredits.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Credits.png"))); // NOI18N
@@ -99,10 +99,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButtonHowPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 160, 50));
 
         imagenMunieco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maniquiahordcado-original (1).png"))); // NOI18N
-        getContentPane().add(imagenMunieco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 170, 230));
+        getContentPane().add(imagenMunieco, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 170, 230));
 
-        FondoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoPrincipal.jpg"))); // NOI18N
-        getContentPane().add(FondoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        FondoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/terror.jpg"))); // NOI18N
+        getContentPane().add(FondoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
